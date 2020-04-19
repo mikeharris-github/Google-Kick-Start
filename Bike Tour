@@ -1,0 +1,48 @@
+package com.mikeharrs;
+import java.util.*;
+import java.io.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        //input for number of test cases
+        Scanner in = new Scanner(new BufferedReader(new InputStreamReader(System.in)));
+
+        System.out.println("enter the number of test cases:");
+        //t = number of test cases
+        int t = in.nextInt();
+        System.out.println("you entered: " + t);
+
+        //start test case look
+        for (int i = 0; i < t; ++i) {
+            System.out.println("enter the number of integers in this test case: ");
+            //identify number of integers in test case
+            int n = in.nextInt();
+            //create array
+            int[] nArray = new int[n];
+
+            //test: enter the numbers within the array
+            int x = 0;
+            while (x<n){
+                System.out.println("enter a number for this test case: ");
+                nArray[x] = in.nextInt();
+                x++;
+            }
+            //identify number of peaks
+            int p = 0;
+
+            //if the number in the peak is greater than the number before or after, increment peak
+            for(int j = 1; j < n-1; j++){
+                System.out.println("j-1: " + nArray[j-1] + "... j: " + nArray[j] + "... j+1: " + nArray[j+1]);
+                if(nArray[j]>nArray[j-1] && nArray[j]> nArray[j+1]) p++;
+//                System.out.println("j = " + nArray[j]);
+//                System.out.println("p = " + p);
+            }
+            System.out.println("Case #" + (i+1) + ": " + p);
+//            p = 0;
+        }
+
+
+    }
+}
